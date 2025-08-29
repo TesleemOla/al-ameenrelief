@@ -52,6 +52,12 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				charity: {
+					blue: 'hsl(var(--charity-blue))',
+					gold: 'hsl(var(--charity-gold))',
+					light: 'hsl(var(--charity-light))',
+					text: 'hsl(var(--charity-text))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
