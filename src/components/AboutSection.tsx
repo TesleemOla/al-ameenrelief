@@ -11,7 +11,7 @@ const AboutSection = () => {
     {
       icon: Users,
       title: "Caring for Orphans",
-      description: "Ensuring orphaned children receive education, healthcare, nutritious meals, and the love they deserve for a brighter future."
+      description: "Ensuring orphaned children receive supports, healthcare, nutritious meals, and the love they deserve for a brighter future."
     },
     {
       icon: Home,
@@ -65,11 +65,11 @@ const AboutSection = () => {
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-charity-gold">500+</div>
+                  <div className="text-2xl font-bold text-charity-gold">10+</div>
                   <div className="text-sm text-charity-text">Families Supported</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-charity-gold">200+</div>
+                  <div className="text-2xl font-bold text-charity-gold">10+</div>
                   <div className="text-sm text-charity-text">Children Educated</div>
                 </div>
               </div>

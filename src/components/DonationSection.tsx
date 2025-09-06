@@ -6,35 +6,22 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
+import { text } from "stream/consumers";
 
 const DonationSection = () => {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    donationType: "",
-    amount: "",
-    message: ""
-  });
 
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
+  const [copied, setCopied] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Here you would typically send the data to your backend
-    toast.success("Thank you for your generous donation intent! We will contact you soon.");
-    setFormData({
-      fullName: "",
-      email: "",
-      phone: "",
-      donationType: "",
-      amount: "",
-      message: ""
-    });
-  };
-
+  async function copytoClipboard(){
+    const numb = '1007985439'
+      try {
+        await navigator.clipboard.writeText(numb);
+        toast.info("Account number copied!");
+        setCopied(true);
+      } catch (err) {
+        toast.error("Failed to copy text: ", err.message)
+      }
+  }
   return (
     <section id="donation" className="py-20 bg-gradient-to-br from-charity-blue to-charity-blue/90">
       <div className="container mx-auto px-6">
@@ -53,17 +40,16 @@ const DonationSection = () => {
             <h3 className="text-2xl font-bold mb-6">Your Impact</h3>
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-charity-gold rounded-full flex items-center justify-center font-bold text-charity-blue">
-                  $25
-                </div>
+                <div className="w-12 h-12 flex items-center justify-center font-bold text-charity-gold">
+                  #10000                </div>
                 <div>
                   <h4 className="font-semibold mb-2">Feed a Family</h4>
                   <p className="text-charity-light">Provides nutritious meals for a family of 4 for one week</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-charity-gold rounded-full flex items-center justify-center font-bold text-charity-blue">
-                  $50
+                <div className="w-12 h-12 flex items-center justify-center font-bold text-charity-gold">
+                  #20000
                 </div>
                 <div>
                   <h4 className="font-semibold mb-2">Education Support</h4>
@@ -71,8 +57,8 @@ const DonationSection = () => {
                 </div>
               </div>
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-charity-gold rounded-full flex items-center justify-center font-bold text-charity-blue">
-                  $100
+                <div className="w-12 h-12 flex items-center justify-center font-bold text-charity-gold">
+                  #50000
                 </div>
                 <div>
                   <h4 className="font-semibold mb-2">Emergency Relief</h4>
@@ -89,89 +75,13 @@ const DonationSection = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="fullName">Full Name *</Label>
-                    <Input
-                      id="fullName"
-                      value={formData.fullName}
-                      onChange={(e) => handleInputChange("fullName", e.target.value)}
-                      required
-                      className="mt-1"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="email">Email Address *</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => handleInputChange("email", e.target.value)}
-                      required
-                      className="mt-1"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="phone">Phone Number</Label>
-                  <Input
-                    id="phone"
-                    value={formData.phone}
-                    onChange={(e) => handleInputChange("phone", e.target.value)}
-                    className="mt-1"
-                  />
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <Label>Donation Type *</Label>
-                    <Select onValueChange={(value) => handleInputChange("donationType", value)} required>
-                      <SelectTrigger className="mt-1">
-                        <SelectValue placeholder="Select donation type" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="one-time">One-time Donation</SelectItem>
-                        <SelectItem value="monthly">Monthly Sponsorship</SelectItem>
-                        <SelectItem value="quarterly">Quarterly Support</SelectItem>
-                        <SelectItem value="yearly">Annual Contribution</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <Label htmlFor="amount">Amount ($) *</Label>
-                    <Input
-                      id="amount"
-                      type="number"
-                      min="1"
-                      value={formData.amount}
-                      onChange={(e) => handleInputChange("amount", e.target.value)}
-                      required
-                      className="mt-1"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="message">Message (Optional)</Label>
-                  <Textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) => handleInputChange("message", e.target.value)}
-                    className="mt-1"
-                    rows={3}
-                    placeholder="Any specific wishes or instructions for your donation..."
-                  />
-                </div>
-
-                <Button 
-                  type="submit" 
-                  className="w-full bg-charity-gold hover:bg-charity-gold/90 text-white font-semibold py-6 text-lg"
-                >
-                  Submit Donation Information
-                </Button>
-              </form>
+              <h1 className="font-bold text-lg">Lotus Bank</h1>
+              <p className="font-bold">Al Ameen Relief Foundation</p>
+              <p className="font-bold text-xl">1007985439</p>
+              <button className="p-2 bg-charity-gold text-white rounded-md my-3"
+              onClick={copytoClipboard}>
+                {copied ? "Copied!" : "Copy Account Number"}
+              </button>
             </CardContent>
           </Card>
         </div>
