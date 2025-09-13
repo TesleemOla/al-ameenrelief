@@ -14,26 +14,7 @@ const Footer = () => {
               with compassion, dignity, and sustainable relief programs.
               Together, we build hope and create lasting positive change.
             </p>
-            <div className="flex space-x-4">
-              <a
-                href="#"
-                className="w-10 h-10 bg-charity-gold rounded-full flex items-center justify-center hover:bg-charity-gold/80 transition-colors"
-              >
-                <Facebook className="w-5 h-5 text-white" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-charity-gold rounded-full flex items-center justify-center hover:bg-charity-gold/80 transition-colors"
-              >
-                <Twitter className="w-5 h-5 text-white" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-charity-gold rounded-full flex items-center justify-center hover:bg-charity-gold/80 transition-colors"
-              >
-                <Instagram className="w-5 h-5 text-white" />
-              </a>
-            </div>
+          
           </div>
 
           <div>
